@@ -54,13 +54,8 @@ class Calendar
      */
     public function set_date(int $days=0, int $months=0, int $years=0){
         $new_date = [$days ? $days:$this->day, $months ? $months:$this->month, $years ? $years:$this->year];
-        try {
-            $this->check_exceptions(...$new_date);
-            list($this->day, $this->month, $this->year) = $new_date;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            die();
-        }
+        $this->check_exceptions(...$new_date);
+        list($this->day, $this->month, $this->year) = $new_date;
     }
     /**
      * Get days/months/years
